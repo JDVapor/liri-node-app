@@ -1,3 +1,3 @@
 # liri-node-app
 
-![](./lirlSS/liriDemo.mp4)
+![](lirlSS/liriDemo.mp4)
