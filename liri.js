@@ -13,7 +13,7 @@ const concertSearch = artist => {
 
   axios.get(queryUrl).then(
     function(response) {
-      for (var i = 0; i < response.data.length; i++) {
+      for (var i = 0; i < 10; i++) {
         // * Name of the venue
         var venue = response.data[i].venue.name;
         // * Venue location
@@ -39,12 +39,12 @@ const songSearch = song => {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
-    console.log(data.tracks.items[0]);
+    songArtist= data.tracks.items[0].artists[0].name;
     songTitle = data.tracks.items[0].name;
     songURL = data.tracks.items[0].preview_url;
     songAlbum = data.tracks.items[0].album.name;
 
-    console.log(`\nSong Title: "${songTitle}"\n Check it out here: ${songURL}\n Album: "${songAlbum}"`);
+    console.log(`\n Song Title: "${songTitle}"\n by: ${songArtist}\n Album: "${songAlbum}"\n Check it out here: ${songURL}`);
   });
   fs.appendFile('log.txt', (',' + command + ',' + songName), (err) => {
     if (err) throw err;
